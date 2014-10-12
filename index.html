@@ -3,7 +3,6 @@
 <head>
     <title>&nbsp;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="scripts/style.css">
 </head>
 <body>
     <div class="container">
@@ -21,4 +20,15 @@
         </div>
     </div>
 </body>
+<script>
+var cb = function() {
+    var l = document.createElement('link'); l.rel = 'stylesheet';
+    l.href = 'scripts/style.css';
+    var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+};
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener('load', cb);
+</script>
 </html>
